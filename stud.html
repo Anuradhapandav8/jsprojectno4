@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Name</title>
+    <style>
+        body {
+   
+    background-color: #dad2db;
+    margin: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+  
+}
+
+#students-container {
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.student-card {
+    background-color: rgb(206, 172, 189);
+    border: 2px solid black;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+   
+}
+
+.student-card:hover {
+    
+    background-color: #f1f1f1;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Students Card</h1>
+    <div id="students-container"></div>
+    <script>
+       
+        
+        const students = ["Aarti","nikita","Siddhika","priti","ragini","Pranjal","Niharika"];
+        console.log(students);
+        console.log("Adding new student");
+        students.push("rakesh");
+        students.push("ankush");
+    
+        console.log(students);
+        students.pop();
+        students.pop();
+        students.pop();
+        students.push("sarthak");
+        console.log(students);
+
+         const studentsContainer = document.getElementById("students-container");
+         for(let i=0;i<students.length;i++){
+            
+            studentsContainer.innerHTML += `<div class='student-card'>${students[i]}</div>`;
+         }
+    </script>
+</body>
+</html>
