@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Information</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: 50deg green,yellowgreen;
+    margin: 0;
+    padding: 0;
+}
+#city-info {
+    margin-top: 50px;
+    padding: 20px;
+   
+    border-radius: 10px;
+   margin-left: 100px;
+    display: inline-block;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: yellowgreen;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color:green;
+}
+
+
+
+img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 300px;
+    margin: 20px;
+    margin-right: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+    </style>
+</head>
+<body>
+    <input type="text" id="city" placeholder="enter your city">
+    <button onclick="getCityInfo()">Get info</button>
+    <div id="city-info"></div>
+    <script>
+        const cityInfo = {
+            mumbai:{
+                image:"https://th.bing.com/th/id/OIP.q94QMYwhc5vDOvinwYStnAHaFj?w=261&h=196&c=7&r=0&o=5&dpr=1.4&pid=1.7",
+                name:"mumbai",
+                State:"maharashtra",
+                Country:"india",
+                info:"Mumbai, the financial capital of India, is a vibrant and bustling metropolis located on the west coast of the country. It is the capital of Maharashtra and is known as the City of Dreams because of its opportunities and the presence of Bollywood, India’s massive film industry" },
+            sambhajinagar:{
+                image:"https://th.bing.com/th/id/OIP.hQa2RuGV8Yeok1tHgGyjtQHaDf?w=339&h=165&c=7&r=0&o=5&dpr=1.4&pid=1.7",
+                name:"chh.sambhajinagar",
+                State:"maharashtra",
+                Country:"india",
+                info:"Chhatrapati Sambhajinagar, formerly known as Aurangabad, is one of Maharashtra's most historically and culturally significant cities. Located in the Marathwada region, it is a perfect blend of ancient heritage and modern development. The city has witnessed the rule of several dynasties, including the Satavahanas, Chalukyas, Yadavas, Mughals, and the Nizams, making it a treasure trove of historical monuments and architectural wonde." },
+            delhi:{
+                image:"https://th.bing.com/th/id/OIP.B7OU6_FK0BuILQhGfQ0NTwHaE5?w=256&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+                name:"Delhi",
+                State:"maharashtra",
+                Country:"india",
+                info:"Delhi's urban agglomeration, which includes the satellite cities Ghaziabad, Faridabad, Gurgaon, Noida, Greater Noida and YEIDA city located in an area known as the National Capital Region (NCR), has an estimated population of over 28 million, making it the largest metropolitan area in India and the second-largest in the world (after Tokyo).[21] Delhi ranks fifth among the Indian states and union territories in human development index,[22] and has the second-highest GDP per capita in India (after Goa).[10] Although a union territory, the political administration of the NCT of Delhi today more closely resembles that of a state of India, with its own legislature, high court and an executive council of ministers headed by a chief minister."
+            },
+            nashik:{
+                image:"https://th.bing.com/th/id/OIP.WZZpY-zKGTofGwng-nFwFwHaEK?w=313&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+                name:"Nashik",
+                State:"maharashtra",
+                Country:"india",
+                info:"The Nashik Tram was started from the Old Municipal Building on the main road to Nashik Road railway station around 1889.[24] The tram served the people of Nashik for almost 44 years. The tram station was at the Main Road, and the tram reached the Nashik Road railway station via the present Main Road, Bhadrakali Market, Ghasbazar, and Phalke Road. It covered a distance of about eight to ten kilometres, and the stretch used to be covered with dense jungle at the time. In the article ‘Nashik-then’, poet Kusumagraj has written passionately about trams. He writes, If the carriages were full, the tram would leave. It would ring the bell and drive out of the village to the main road and then to the grass market.[25]"
+            }
+
+        };
+        function getCityInfo(){
+            const cityName=document.getElementById("city").value.toLowerCase();
+           const cityDetails = cityInfo[cityName]
+            if(!cityDetails){
+                alert("city not found")
+                return
+            }
+            const cityinfoDiv=document.getElementById("city-info");
+            cityinfoDiv.innerHTML=`
+            <img src="${cityDetails.image}" alt="${cityDetails.name}"/>
+            <h2>${cityDetails.name}</h2>
+            <p>state:${cityDetails.State}</p>
+            <p>country:${cityDetails.Country}
+             <p>info:${cityDetails.info}`;
+        }
+    </script>
+</body>
+</html>
